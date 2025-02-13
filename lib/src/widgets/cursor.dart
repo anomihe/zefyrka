@@ -83,7 +83,7 @@ class CursorStyle {
   });
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! CursorStyle) return false;
     return other.color == color &&
@@ -97,8 +97,18 @@ class CursorStyle {
   }
 
   @override
-  int get hashCode => hashValues(color, backgroundColor, width, height, radius,
-      offset, opacityAnimates, paintAboveText);
+  // int get hashCode => hashValues(color, backgroundColor, width, height, radius,
+  //     offset, opacityAnimates, paintAboveText);
+  int get hashCode => Object.hash(
+        color,
+        backgroundColor,
+        width,
+        height,
+        radius,
+        offset,
+        opacityAnimates,
+        paintAboveText,
+      );
 }
 
 /// Controls cursor of an editable widget.
